@@ -29,7 +29,7 @@ public class SendMailServiceImpl implements SendMailService{
         log.info("inside Send email, building mail!!");
         MimeMessagePreparator mimeMessagePreparator = mimeMessage -> {
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage);
-            mimeMessageHelper.setFrom("noreply@gmail.com");
+            mimeMessageHelper.setFrom(emailDto.getSender());
             mimeMessageHelper.setTo(emailDto.getRecipient());
             mimeMessageHelper.setSubject(emailDto.getSubject());
             mimeMessageHelper.setText(emailDto.getBody());
